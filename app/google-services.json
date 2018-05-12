@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "513388107272",
+    "firebase_url": "https://messagingapplication-101.firebaseio.com",
+    "project_id": "messagingapplication-101",
+    "storage_bucket": "messagingapplication-101.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513388107272:android:be0ef065020e81e7",
+        "android_client_info": {
+          "package_name": "com.example.rishiraij.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513388107272-gvrd584p12qb3avlmhan4jlnldivgvru.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rishiraij.chatapp",
+            "certificate_hash": "51a20b1f84f37d8f1ac22550ca63bea9f4ad509a"
+          }
+        },
+        {
+          "client_id": "513388107272-kr6sqbvptdajek21rjp0gkkpstn45hv0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjURKncrSQwLuwFPyKviThRHG1xES6Z1M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513388107272-kr6sqbvptdajek21rjp0gkkpstn45hv0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
