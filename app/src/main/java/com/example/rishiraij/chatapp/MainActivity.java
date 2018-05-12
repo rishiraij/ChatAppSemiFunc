@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.text.format.DateFormat;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout activity_main;
 
     EditText textBar;
-    ImageView submitButton;
+    ImageView postButton;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -78,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
         activity_main = (RelativeLayout)findViewById(R.id.activity_main);
 
-        submitButton = (ImageView)findViewById(R.id.submit_button);
+        postButton = (ImageView)findViewById(R.id.submit_button);
         textBar = (EditText) findViewById(R.id.etType);
 
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase.getInstance().getReference().push().setValue(new Messages(textBar.getText().toString(),
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayChatMessage() {
 
-        ListView listOfMessage = (ListView)findViewById(R.id.list_of_message);
+        ListView messageList = (ListView)findViewById(R.id.lv_messages);
         adapter = new FirebaseListAdapter<Messages>(this,Messages.class,R.layout.list_item,FirebaseDatabase.getInstance().getReference())
         {
             @Override
@@ -125,9 +126,8 @@ public class MainActivity extends AppCompatActivity {
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getMessageTime()));
-
             }
         };
-        listOfMessage.setAdapter(adapter);
+        messageList.setAdapter(adapter);
     }
 }
