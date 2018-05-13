@@ -1,6 +1,7 @@
 package com.example.rishiraij.chatapp;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 
 public class Messages {
@@ -12,6 +13,7 @@ public class Messages {
         this.messageText = messageText;
         this.messageUser = messageUser;
 
+        TimeZone.setDefault(TimeZone.getTimeZone("America/Los_Angeles"));
         messageTime = new Date().getTime();
     }
 
