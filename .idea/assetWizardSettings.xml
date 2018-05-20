@@ -89,7 +89,7 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="CIRCLE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/launcher_icon.png" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/chatapp_launcher_icon.png" />
                                       <entry key="outputName" value="chat_app_launcher" />
                                     </map>
                                   </option>
