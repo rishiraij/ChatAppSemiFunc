@@ -16,10 +16,13 @@ public class Messages {
         TimeZone.setDefault(TimeZone.getTimeZone("America/Los_Angeles"));
         messageTime = new Date().getTime();
     }
-
+    // we won't use the default constructor but we just have it
     public Messages() {
     }
-
+    /*
+    The following are getters and setters that are used in the MainActivity.java class
+    These store the values for each message
+     */
     public String getMessageText() {
         return messageText;
     }

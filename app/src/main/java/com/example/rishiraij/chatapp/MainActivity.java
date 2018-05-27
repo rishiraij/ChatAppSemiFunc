@@ -51,14 +51,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    // code for the sign ou button
-    // the button is essentially "deflated", and
+    // code for the sign out button
+    // the button is essentially "deflated", and clicking on it "inflates" it
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return true;
     }
 
     @Override
+    // signs the user in, or closes app if the user is unable to sign in
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == SIGN_IN_REQUEST_CODE)
@@ -76,18 +77,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    // the "main" method
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         activity_main = (RelativeLayout)findViewById(R.id.activity_main);
-
+        // the variable for the send button
         postButton = (ImageView)findViewById(R.id.submit_button);
+        // the variable for where the user enters text
         textBar = (EditText) findViewById(R.id.etType);
-
+        // an onClickListener that "listens" for when the user clicks the send button
         postButton.setOnClickListener(new View.OnClickListener() {
+            // if the send button is clicked then we create a new message object and clear the
+            // text field after the new message object has been created
             @Override
             public void onClick(View view) {
+                // pushes the message to firebase
                 FirebaseDatabase.getInstance().getReference().push().setValue(new Messages(textBar.getText().toString(),
                         FirebaseAuth.getInstance().getCurrentUser().getEmail()));
                 textBar.setText("");
@@ -95,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Check if not sign-in then navigate Sign in page
+        //Check if not sign-in then navigate to Sign in page
         if(FirebaseAuth.getInstance().getCurrentUser() == null)
         {
             startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().build(),SIGN_IN_REQUEST_CODE);
@@ -111,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    // gets the messages from firebase database and displays them on the screen
     private void displayChatMessage() {
 
         ListView messageList = (ListView)findViewById(R.id.lv_messages);
@@ -126,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
                 messageUser = (TextView) v.findViewById(R.id.message_user);
                 messageTime = (TextView) v.findViewById(R.id.message_time);
 
+                // sets the variables defined above to the values in the Message object
+                // these appear on the screen
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getMessageTime()));
