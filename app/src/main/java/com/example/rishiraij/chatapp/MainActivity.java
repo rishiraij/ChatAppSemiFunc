@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // signs the user out
         if(item.getItemId() == R.id.menu_sign_out)
         {
             AuthUI.getInstance().signOut(this).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    // code for the sign ou button
+    // the button is essentially "deflated", and
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return true;
